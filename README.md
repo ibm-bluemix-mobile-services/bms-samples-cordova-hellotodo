@@ -1,5 +1,5 @@
 # Cordova HelloTodo Sample Application for Bluemix Mobile Services
----
+
 This helloTodo sample contains a Cordova project to be used to communicate with a StrongLoop based mobile backend created on IBM Bluemix. 
 
 Use the following steps to configure the helloTodo sample for Cordova:
