@@ -29,18 +29,43 @@
         
         <link rel="stylesheet" type="text/css" href="css/index.css">
 
-        <title>Hello World</title>
+        <title>Hello Todo</title>
     </head>
     <body>
         <div class="container">
-            <div class="text-response">
-                <h1 id="text-big"></h1>
-                <p id="text-connected">You are not connected!</p>
-                <p id="text-details"></p>
+
+            <h2 id="todo-title">Hello Todo</h2>
+
+            <div class="input-group" id="todo-new">
+                <input id="todo-add-item" type="text" class="form-control" placeholder="New todo">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary" onclick="app.addItem()">Add</button>
+                </span>
             </div>
-            <button id="btn-ping" class="btn btn-lg" onclick="app.ping()">PING BLUEMIX</button>
+
+            <table class="table table-striped" id="todo-table">
+                <tr class="todo-item-row">
+                    <td class="todo-item-cell">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="checkbox" aria-label="...">
+                            </span>
+                            <input type="text" class="form-control" aria-label="..">
+                            <span class="input-group-btn">
+                                <button class="btn btn-info" type="button">Edit</button>
+                                <button class="btn btn-danger" type="button">Delete</button>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+            <button onclick="app.getAll()" type="button" class="btn btn-default btn-md btn-block">Refresh Items</button>
+
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/api.js"></script>
+        <script type="text/javascript" src="js/view.js"></script>
     </body>
 </html>

@@ -19,8 +19,9 @@
 
 var app =  {
     // Bluemix credentials
-    route: "<APPLICATION_ROUTE>",
-    guid: "<APPLICATION_GUID>",
+    route: "https://HelloMatt.stage1.mybluemix.net",
+    guid: "9819f5be-fd58-467d-b214-b714c6b20df0",
+    apiRoute: "/api/Items",
 
     // Initialize BMSClient
     initialize: function() {
@@ -41,33 +42,54 @@ var app =  {
     // variables, we must explicitly call 'app.route' and 'app.guid'
     onDeviceReady: function() {
         BMSClient.initialize(app.route, app.guid);
+        app.apiRoute = app.route + app.apiRoute;
     },
 
-    // Ping Bluemix
-    ping: function() {
-        var request = new MFPRequest(this.route + "/protected", MFPRequest.GET);
+    // Make a call to our API to get all Items.
+    // Update the table with the items
+    getAll: function() {
+        api.getAll(app.apiRoute, view.refreshTable, app.failure);
+    },
 
-        var header = document.getElementById("text-big");
-        var connected = document.getElementById("text-connected");
-        var details = document.getElementById("text-details");
+    // Make a call to our API to add a new item
+    // Update the table with the new items
+    addItem: function() {
+        api.addItem(app.apiRoute, app.getAll, app.failure);
+    },
 
-        var success = function(successResponse) {
-            header.style.display = "block";
-            header.innerHTML = "Yay!";
-            connected.innerHTML = "You are connected!";
-            details.innerHTML = "<h4>Response:</h4><i>" + successResponse.responseText + "</i>";
-            //alert("Request success!\n\n" + JSON.stringify(successResponse));
-        };
+    // Make a call to our API to update a specific item
+    // Update the table with the items 
+    updateItem: function(id) {
+        api.setItem(app.apiRoute, id, view.updateItem(id, false), app.failure);
+    },
 
-        var failure = function(failureResponse) {
-            header.style.display = "block";
-            header.innerHTML = "Bummer";
-            connected.innerHTML = "Something Went Wrong";
-            details.innerHTML = "<h4>Response:</h4><i>" + failureResponse.errorDescription + "</i>";
-            //alert("Request failure!\n\n" + JSON.stringify(failureResponse));
-        };
+    // Enable input text and change edit to save button
+    editItem: function(id) {
+        view.changeToSave(id);
+        view.updateItem(id, true);
+    },
 
-        request.send(success, failure);
+    // Make a call to our API to update a specific item
+    // Disable input text and change save to edit button
+    saveItem: function(id) {
+        view.changeToEdit(id);
+        view.updateItem(id, false);
+        api.setItem(app.apiRoute, id, app.getAll, app.failure);
+    },
+
+    // Make a call to our API to delete a specific item
+    deleteItem: function(id) {
+        api.deleteItem(app.apiRoute, id, app.getAll, app.failure);
+    },
+    
+    // Standard success response
+    success: function(res) { 
+        alert("Success: " + JSON.stringify(res)); 
+    },
+
+    // Standard failure response
+    failure: function(res) {
+        alert("Failure: " + JSON.stringify(res));
     }
 };
 
