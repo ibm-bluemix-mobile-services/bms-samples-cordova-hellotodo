@@ -36,9 +36,9 @@ p {
     font-size: 120%;
 }
 
-/*input[type="text"]:disabled {
-    background: white;
-}*/
+input[type="text"] {
+    color: black;
+}
 
 #todo-title {
     margin-bottom: 15px;

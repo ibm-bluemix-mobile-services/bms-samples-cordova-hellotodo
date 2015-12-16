@@ -19,7 +19,7 @@
 
 var app =  {
     // Bluemix credentials
-    route: "https://HelloMatt.stage1.mybluemix.net",
+    route: "http://HelloMatt.stage1.mybluemix.net",
     guid: "9819f5be-fd58-467d-b214-b714c6b20df0",
     apiRoute: "/api/Items",
 
@@ -43,6 +43,7 @@ var app =  {
     onDeviceReady: function() {
         BMSClient.initialize(app.route, app.guid);
         app.apiRoute = app.route + app.apiRoute;
+        app.getAll();
     },
 
     // Make a call to our API to get all Items.
