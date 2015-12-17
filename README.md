@@ -20,12 +20,16 @@ git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-cordova-hel
 
 Navigate into your project directory and run the following commands:
 
-	cordova platform add ios
-	cordova platform add android
-	
+```Bash
+cordova platform add ios
+cordova platform add android
+```
+
 Add the plugin:
 
-	cordova plugin add ibm-mfp-core
+```Bash
+cordova plugin add ibm-mfp-core
+```
 
 ### Configure Cordova
 
@@ -41,10 +45,12 @@ Follow the README instructions for [Configuration](https://github.com/ibm-bluemi
 4. Make sure your route is using **https**
 
 Javascript:
-	
-	// Bluemix credentials
-	route: "<APPLICATION_ROUTE>",
-	guid: "<APPLICATION_GUID>",	
+
+```Javascript	
+// Bluemix credentials
+route: "<APPLICATION_ROUTE>",
+guid: "<APPLICATION_GUID>",
+```
 
 ***Note: Don't forget commas at the end of each line!***
 
@@ -54,13 +60,17 @@ Now you can run your application in your mobile emulator or on your device.
 
 1. Build the Cordova app. From your terminal enter the following command:
 
-		cordova build ios
-		cordova build android
+	```Bash
+	cordova build ios
+	cordova build android
+	```
 
 2. Run the sample app. From your terminal enter the following command:
 
-		cordova run ios
-		cordova run android
+	```Bash
+	cordova run ios
+	cordova run android
+	```
 
 ### Resolve any problems
 
