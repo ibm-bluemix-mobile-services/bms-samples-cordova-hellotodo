@@ -11,9 +11,11 @@ The HelloTodo sample contains a Cordova project that you can use to learn.
 ### Downloading the sample
 
 Clone the samples with the following command:
-	
-	git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-cordova-hellotodo
-	
+
+```Bash	
+git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-cordova-hellotodo
+```
+
 ### Add the native platforms to your app
 
 Navigate into your project directory and run the following commands:
