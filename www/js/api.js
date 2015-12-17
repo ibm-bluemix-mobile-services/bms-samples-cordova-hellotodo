@@ -20,7 +20,7 @@
 var api = {
 
 	// Make a GET request to the API for all Items
-	getAll: function(apiRoute, success, failure) {
+	getItems: function(apiRoute, success, failure) {
 
 		// Set up the GET request
 		var request = new MFPRequest(apiRoute, MFPRequest.GET);

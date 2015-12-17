@@ -43,19 +43,19 @@ var app =  {
     onDeviceReady: function() {
         BMSClient.initialize(app.route, app.guid);
         app.apiRoute = app.route + app.apiRoute;
-        app.getAll();
+        app.getItems();
     },
 
     // Make a call to our API to get all Items.
     // Update the table with the items
-    getAll: function() {
-        api.getAll(app.apiRoute, view.refreshTable, app.failure);
+    getItems: function() {
+        api.getItems(app.apiRoute, view.refreshTable, app.failure);
     },
 
     // Make a call to our API to add a new item
     // Update the table with the new items
     addItem: function() {
-        api.addItem(app.apiRoute, app.getAll, app.failure);
+        api.addItem(app.apiRoute, app.getItems, app.failure);
     },
 
     // Make a call to our API to update a specific item
@@ -75,12 +75,12 @@ var app =  {
     saveItem: function(id) {
         view.changeToEdit(id);
         view.updateItem(id, false);
-        api.setItem(app.apiRoute, id, app.getAll, app.failure);
+        api.setItem(app.apiRoute, id, app.getItems, app.failure);
     },
 
     // Make a call to our API to delete a specific item
     deleteItem: function(id) {
-        api.deleteItem(app.apiRoute, id, app.getAll, app.failure);
+        api.deleteItem(app.apiRoute, id, app.getItems, app.failure);
     },
     
     // Standard success response
