@@ -95,7 +95,7 @@ function generateTableRow(id, text, isDone) {
 	var html = "";
 	var elemID = "";
 
-	// Add Table roow
+	// Add Table row
 	html += '<td class="todo-item-cell"><div class="input-group"><span class="input-group-addon">';
 	elemID = "todo-item-checkbox-" + id;
 
@@ -119,32 +119,5 @@ function generateTableRow(id, text, isDone) {
 	
 	row.innerHTML = html;
 	table.appendChild(row);
-	//alert(html);
 };
-
-/*
-var html = "";
-
-html +=
-	<td class="todo-item-cell">
-	    <div class="input-group">
-	        <span class="input-group-addon">
-
-if (isDone) {
-	html += <input type="checkbox" checked=true>
-}
-else {
-	html += <input type="checkbox" checked=false>
-}
-
-html +=
-	        </span>
-	        <input type="text" class="form-control" value="">
-	        <span class="input-group-btn">
-	            <button class="btn btn-info" type="button">Edit</button>
-	            <button class="btn btn-danger" type="button">Delete</button>
-	        </span>
-	    </div>
-	</td>
-*/
 
