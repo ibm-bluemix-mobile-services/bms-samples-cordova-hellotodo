@@ -62,7 +62,7 @@ var app =  {
     },
 
     // Make a call to our API to update a specific item
-    // Update the table with the items 
+    // Update the table with the items
     updateItem: function(id) {
         api.setItem(app.apiRoute, id, view.updateItem(id, false), app.failure);
     },
@@ -85,10 +85,10 @@ var app =  {
     deleteItem: function(id) {
         api.deleteItem(app.apiRoute, id, app.getItems, app.failure);
     },
-    
+
     // Standard success response
-    success: function(res) { 
-        alert("Success: " + JSON.stringify(res)); 
+    success: function(res) {
+        alert("Success: " + JSON.stringify(res));
     },
 
     // Standard failure response

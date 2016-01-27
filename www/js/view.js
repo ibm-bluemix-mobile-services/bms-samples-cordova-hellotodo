@@ -19,21 +19,21 @@
 
 var view = {
 
-	// Refresh the Items table in the view
+    // Refresh the Items table in the view
     refreshTable: function(res) {
-    	clearTable();
-    	var items = JSON.parse(res.responseText);
-    	for (i in items) {
-        	var id = items[i].id;
-        	var text = items[i].text;
-        	var isDone = items[i].isDone;
-        	generateTableRow(id, text, isDone);
-    	}
+        clearTable();
+        var items = JSON.parse(res.responseText);
+        for (i in items) {
+            var id = items[i].id;
+            var text = items[i].text;
+            var isDone = items[i].isDone;
+            generateTableRow(id, text, isDone);
+        }
     },
 
     // Update strike through of item if checked or not OR if clear is set then clear checkbox
     updateItem: function(id, clear) {
-		var checkboxID = "todo-item-checkbox-" + id;
+        var checkboxID = "todo-item-checkbox-" + id;
         var checked = document.getElementById(checkboxID).checked;
 
         var inputID = "todo-item-input-" + id;
@@ -49,8 +49,8 @@ var view = {
 
     // Change Edit button to Save button and enable input
     changeToSave: function(id) {
-    	// Change edit to save
-		var btnID = "todo-item-btn-edit-" + id;
+        // Change edit to save
+        var btnID = "todo-item-btn-edit-" + id;
         var btn = document.getElementById(btnID);
         btn.className = "btn btn-success";
         btn.textContent = "Save";
@@ -65,8 +65,8 @@ var view = {
 
     // Change Save button to Edit button and disable input
     changeToEdit: function(id) {
-    	// Change save to edit
-    	var btnID = "todo-item-btn-save-" + id;
+        // Change save to edit
+        var btnID = "todo-item-btn-save-" + id;
         var btn = document.getElementById(btnID);
         btn.className = "btn btn-info";
         btn.textContent = "Edit";
@@ -82,42 +82,41 @@ var view = {
 
 // Clear the table contents
 function clearTable() {
-	var table = document.getElementsByTagName("tbody")[0];
-	table.innerHTML = "";
+    var table = document.getElementsByTagName("tbody")[0];
+    table.innerHTML = "";
 }
 
 // Generate the HTML for each row of the table
 function generateTableRow(id, text, isDone) {
-	var table = document.getElementsByTagName("tbody")[0];
-	var row = document.createElement("tr");
-	row.className = "todo-item-row";
+    var table = document.getElementsByTagName("tbody")[0];
+    var row = document.createElement("tr");
+    row.className = "todo-item-row";
 
-	var html = "";
-	var elemID = "";
+    var html = "";
+    var elemID = "";
 
-	// Add Table row
-	html += '<td class="todo-item-cell"><div class="input-group"><span class="input-group-addon">';
-	elemID = "todo-item-checkbox-" + id;
+    // Add Table row
+    html += '<td class="todo-item-cell"><div class="input-group"><span class="input-group-addon">';
+    elemID = "todo-item-checkbox-" + id;
 
-	// Add Checkbox and set to checked if isDone
-	// Add Input and add strike-through class if isDone
-	if (isDone) {
-		html += '<input id="' + elemID + '" type="checkbox" checked onclick="app.updateItem(' + id + ')">';
-		elemID = "todo-item-input-" + id;	
-		html += '</span><input id="' + elemID + '" type="text" disabled=true class="form-control ' + "strike" + '" value="' + text + '">';
-	}
-	else {
-		html += '<input id="' + elemID + '" type="checkbox" onclick="app.updateItem(' + id + ')">';
-		elemID = "todo-item-input-" + id;	
-		html += '</span><input id="' + elemID + '" type="text" disabled=true class="form-control" value="' + text + '">';
-	}
+    // Add Checkbox and set to checked if isDone
+    // Add Input and add strike-through class if isDone
+    if (isDone) {
+        html += '<input id="' + elemID + '" type="checkbox" checked onclick="app.updateItem(' + id + ')">';
+        elemID = "todo-item-input-" + id;
+        html += '</span><input id="' + elemID + '" type="text" disabled=true class="form-control ' + "strike" + '" value="' + text + '">';
+    }
+    else {
+        html += '<input id="' + elemID + '" type="checkbox" onclick="app.updateItem(' + id + ')">';
+        elemID = "todo-item-input-" + id;
+        html += '</span><input id="' + elemID + '" type="text" disabled=true class="form-control" value="' + text + '">';
+    }
 
-	// Add Buttons
-	elemID = "todo-item-btn-edit-" + id;
-	html += '<span class="input-group-btn"><button id="' + elemID + '" class="btn btn-info" type="button" onclick="app.editItem(' + id + ')">Edit</button>'
-	html += '<button class="btn btn-danger" type="button" onclick="app.deleteItem(' + id + ')">Delete</button></span></div></td>';
-	
-	row.innerHTML = html;
-	table.appendChild(row);
+    // Add Buttons
+    elemID = "todo-item-btn-edit-" + id;
+    html += '<span class="input-group-btn"><button id="' + elemID + '" class="btn btn-info" type="button" onclick="app.editItem(' + id + ')">Edit</button>'
+    html += '<button class="btn btn-danger" type="button" onclick="app.deleteItem(' + id + ')">Delete</button></span></div></td>';
+
+    row.innerHTML = html;
+    table.appendChild(row);
 };
-

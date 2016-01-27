@@ -19,59 +19,59 @@
 
 var api = {
 
-	// Make a GET request to the API for all Items
-	getItems: function(apiRoute, success, failure) {
+    // Make a GET request to the API for all Items
+    getItems: function(apiRoute, success, failure) {
 
-		// Set up the GET request
-		var request = new MFPRequest(apiRoute, MFPRequest.GET);
+        // Set up the GET request
+        var request = new MFPRequest(apiRoute, MFPRequest.GET);
 
-		// Send the request
-		request.send(success, failure);
-	},
+        // Send the request
+        request.send(success, failure);
+    },
 
-	// Make a POST request to the API to add a new item
-	addItem: function(apiRoute, success, failure) {
+    // Make a POST request to the API to add a new item
+    addItem: function(apiRoute, success, failure) {
 
-		// Set up the POST request and set headers
-		var request = new MFPRequest(apiRoute, MFPRequest.POST);
-		var headers = {
-		    "Content-Type": "application/json",
-		    "Accept": "application/json",
-		};
-		request.setHeaders(headers);
+        // Set up the POST request and set headers
+        var request = new MFPRequest(apiRoute, MFPRequest.POST);
+        var headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        };
+        request.setHeaders(headers);
 
-		// Item text
-		var inputID = "todo-add-item";
+        // Item text
+        var inputID = "todo-add-item";
         var text = document.getElementById(inputID).value;
 
         // Set the body of the request
-		var body = {
-			"text": text,
-			"isDone": false
-		};
+        var body = {
+            "text": text,
+            "isDone": false
+        };
 
-		document.getElementById(inputID).value = "";
+        document.getElementById(inputID).value = "";
 
-		// Send the request
-		request.send(body, success, failure);
-	},
+        // Send the request
+        request.send(body, success, failure);
+    },
 
-	// Make a PUT request to the API to update the specific item with specified ID
-	setItem: function(apiRoute, id, success, failure) {
+    // Make a PUT request to the API to update the specific item with specified ID
+    setItem: function(apiRoute, id, success, failure) {
 
-		// /api/Items/:id
-		var url = apiRoute + "/" + id;
+        // /api/Items/:id
+        var url = apiRoute + "/" + id;
 
-		// Set up the PUT request and set the headers
-		var request = new MFPRequest(url, MFPRequest.PUT);
-		var headers = {
-		    "Content-Type": "application/json",
-		    "Accept": "application/json",
-		};
-		request.setHeaders(headers);
+        // Set up the PUT request and set the headers
+        var request = new MFPRequest(url, MFPRequest.PUT);
+        var headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        };
+        request.setHeaders(headers);
 
-		// Item text
-		var inputID = "todo-item-input-" + id;
+        // Item text
+        var inputID = "todo-item-input-" + id;
         var text = document.getElementById(inputID).value;
 
         // Item isDone
@@ -79,30 +79,30 @@ var api = {
         var checked = document.getElementById(checkboxID).checked;
 
         // Set the body of the request
-		var body = {
-			"text": text,
-			"isDone": checked,
-			"id": id
-		};
+        var body = {
+            "text": text,
+            "isDone": checked,
+            "id": id
+        };
 
-		// Send the request with JSON body
-		request.send(body, success, failure);
-	},
+        // Send the request with JSON body
+        request.send(body, success, failure);
+    },
 
-	// Make a DELETE request to the API to delete the specific item with specified ID
-	deleteItem: function(apiRoute, id, success, failure) {
+    // Make a DELETE request to the API to delete the specific item with specified ID
+    deleteItem: function(apiRoute, id, success, failure) {
 
-		// /api/Items/:id
-		var url = apiRoute + "/" + id;
+        // /api/Items/:id
+        var url = apiRoute + "/" + id;
 
-		// Set up the GET request and set the headers
-		var request = new MFPRequest(url, MFPRequest.DELETE);
-		var headers = {
-		    "Accept": "application/json",
-		};
-		request.setHeaders(headers);
+        // Set up the GET request and set the headers
+        var request = new MFPRequest(url, MFPRequest.DELETE);
+        var headers = {
+            "Accept": "application/json",
+        };
+        request.setHeaders(headers);
 
-		// Send the request
-		request.send(success, failure);
-	}
+        // Send the request
+        request.send(success, failure);
+    }
 };
