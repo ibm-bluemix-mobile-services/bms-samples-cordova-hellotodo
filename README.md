@@ -33,7 +33,7 @@ cordova plugin add ibm-mfp-core
 
 ### Configure Cordova
 
-Follow the README instructions for [Configuration](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#configuration) to configure your development environment.
+Follow the README instructions for [Configuration](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#4-configuring-your-platform) to configure your development environment.
 
 ***Note: Project will not build until you follow instructions from this step***
   
