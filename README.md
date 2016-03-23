@@ -6,13 +6,13 @@ The HelloTodo sample contains a Cordova project that you can use to learn.
 
 1. In the Boilerplates section of the Bluemix catalog, click MobileFirst Services Starter.
 2. Enter a name and host for your app and click Create.
-3. Click Finish. 
+3. Click Finish.
 
 ### Downloading the sample
 
 Clone the samples with the following command:
 
-```Bash	
+```Bash
 git clone https://github.com/ibm-bluemix-mobile-services/bms-samples-cordova-hellotodo
 ```
 
@@ -36,17 +36,17 @@ cordova plugin add ibm-mfp-core
 Follow the README instructions for [Configuration](https://github.com/ibm-bluemix-mobile-services/bms-clientsdk-cordova-plugin-core/#4-configuring-your-platform) to configure your development environment.
 
 ***Note: Project will not build until you follow instructions from this step***
-  
-### Configure the front end in the HelloWorld sample
+
+### Configure the front end in the HelloTodo sample
 
 1. Navigate to the directory where the project was cloned.
 2. Open <b>index.js</b> located at [your-directory]/www/js/index.js
 3. Replace the \<APPLICATION_ROUTE\> and \<APPLICATION_GUID\> with your Bluemix application ID and route.
 4. Make sure your route is using **https**
 
-Javascript:
+JavaScript:
 
-```Javascript	
+```Javascript
 // Bluemix credentials
 route: "<APPLICATION_ROUTE>",
 guid: "<APPLICATION_GUID>",
