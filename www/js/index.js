@@ -50,21 +50,21 @@ var app =  {
     },
 
     // Make a call to our API to get all Items.
-    // Update the table with the items
+    // Update the table with the items if the request succeeds
     getItems: function() {
         api.getItems(app.apiRoute, view.refreshTable, app.failure);
     },
 
     // Make a call to our API to add a new item
-    // Update the table with the new items
+    // Refresh the table to include the new item if the request succeeds
     addItem: function() {
         api.addItem(app.apiRoute, app.getItems, app.failure);
     },
 
-    // Make a call to our API to update a specific item
-    // Update the table with the items 
+    // Make a call to our API to update a specific item when the checkbox is toggled
+    // Refresh the table to include the updated item if the request succeeds
     updateItem: function(id) {
-        api.setItem(app.apiRoute, id, view.updateItem(id, false), app.failure);
+        api.updateItem(app.apiRoute, id, view.updateItem(id, false), app.failure);
     },
 
     // Enable input text and change edit to save button
@@ -73,22 +73,17 @@ var app =  {
         view.updateItem(id, true);
     },
 
-    // Make a call to our API to update a specific item
+    // Make a call to our API to update a specific item after the text is edited and saved
     // Disable input text and change save to edit button
     saveItem: function(id) {
         view.changeToEdit(id);
         view.updateItem(id, false);
-        api.setItem(app.apiRoute, id, app.getItems, app.failure);
+        api.updateItem(app.apiRoute, id, app.getItems, app.failure);
     },
 
     // Make a call to our API to delete a specific item
     deleteItem: function(id) {
         api.deleteItem(app.apiRoute, id, app.getItems, app.failure);
-    },
-    
-    // Standard success response
-    success: function(res) { 
-        alert("Success: " + JSON.stringify(res)); 
     },
 
     // Standard failure response
