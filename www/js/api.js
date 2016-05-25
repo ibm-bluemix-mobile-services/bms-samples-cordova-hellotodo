@@ -57,7 +57,7 @@ var api = {
 	},
 
 	// Make a PUT request to the API to update the specific item with specified ID
-	setItem: function(apiRoute, id, success, failure) {
+	updateItem: function(apiRoute, id, success, failure) {
 
 		// /api/Items/:id
 		var url = apiRoute + "/" + id;
@@ -95,7 +95,7 @@ var api = {
 		// /api/Items/:id
 		var url = apiRoute + "/" + id;
 
-		// Set up the GET request and set the headers
+		// Set up the DELETE request and set the headers
 		var request = new MFPRequest(url, MFPRequest.DELETE);
 		var headers = {
 		    "Accept": "application/json",

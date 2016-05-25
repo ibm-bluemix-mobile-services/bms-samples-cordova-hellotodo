@@ -20,9 +20,9 @@
 var view = {
 
 	// Refresh the Items table in the view
-    refreshTable: function(res) {
+    refreshTable: function(response) {
     	clearTable();
-    	var items = JSON.parse(res.responseText);
+    	var items = JSON.parse(response.responseText);
     	for (i in items) {
         	var id = items[i].id;
         	var text = items[i].text;
@@ -50,12 +50,12 @@ var view = {
     // Change Edit button to Save button and enable input
     changeToSave: function(id) {
     	// Change edit to save
-		var btnID = "todo-item-btn-edit-" + id;
-        var btn = document.getElementById(btnID);
-        btn.className = "btn btn-success";
-        btn.textContent = "Save";
-        btn.setAttribute('onclick', "app.saveItem(" + id + ")");
-        btn.id = "todo-item-btn-save-" + id;
+		var buttonID = "todo-item-btn-edit-" + id;
+        var button = document.getElementById(buttonID);
+        button.className = "btn btn-success";
+        button.textContent = "Save";
+        button.setAttribute('onclick', "app.saveItem(" + id + ")");
+        button.id = "todo-item-btn-save-" + id;
 
         // Enable input
         var inputID = "todo-item-input-" + id;
@@ -66,12 +66,12 @@ var view = {
     // Change Save button to Edit button and disable input
     changeToEdit: function(id) {
     	// Change save to edit
-    	var btnID = "todo-item-btn-save-" + id;
-        var btn = document.getElementById(btnID);
-        btn.className = "btn btn-info";
-        btn.textContent = "Edit";
-        btn.setAttribute('onclick', "app.editItem(" + id + ")");
-        btn.id = "todo-item-btn-edit-" + id;
+    	var buttonID = "todo-item-btn-save-" + id;
+        var button = document.getElementById(buttonID);
+        button.className = "btn btn-info";
+        button.textContent = "Edit";
+        button.setAttribute('onclick', "app.editItem(" + id + ")");
+        button.id = "todo-item-btn-edit-" + id;
 
         // Disable input
         var inputID = "todo-item-input-" + id;
@@ -103,12 +103,12 @@ function generateTableRow(id, text, isDone) {
 	// Add Input and add strike-through class if isDone
 	if (isDone) {
 		html += '<input id="' + elemID + '" type="checkbox" checked onclick="app.updateItem(' + id + ')">';
-		elemID = "todo-item-input-" + id;	
+		elemID = "todo-item-input-" + id;
 		html += '</span><input id="' + elemID + '" type="text" disabled=true class="form-control ' + "strike" + '" value="' + text + '">';
 	}
 	else {
 		html += '<input id="' + elemID + '" type="checkbox" onclick="app.updateItem(' + id + ')">';
-		elemID = "todo-item-input-" + id;	
+		elemID = "todo-item-input-" + id;
 		html += '</span><input id="' + elemID + '" type="text" disabled=true class="form-control" value="' + text + '">';
 	}
 
@@ -116,8 +116,7 @@ function generateTableRow(id, text, isDone) {
 	elemID = "todo-item-btn-edit-" + id;
 	html += '<span class="input-group-btn"><button id="' + elemID + '" class="btn btn-info" type="button" onclick="app.editItem(' + id + ')">Edit</button>'
 	html += '<button class="btn btn-danger" type="button" onclick="app.deleteItem(' + id + ')">Delete</button></span></div></td>';
-	
+
 	row.innerHTML = html;
 	table.appendChild(row);
 };
-
