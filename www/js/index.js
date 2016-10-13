@@ -44,7 +44,7 @@ var app =  {
     // The scope of 'this' is the event. In order to use the 'route' and 'guid'
     // variables, we must explicitly call 'app.route' and 'app.guid'
     onDeviceReady: function() {
-        BMSClient.initialize(app.route, app.guid);
+        BMSClient.initialize(BMSClient.REGION_US_SOUTH);
         app.apiRoute = app.route + app.apiRoute;
         app.getItems();
     },

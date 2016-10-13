@@ -23,7 +23,7 @@ var api = {
 	getItems: function(apiRoute, success, failure) {
 
 		// Set up the GET request
-		var request = new MFPRequest(apiRoute, MFPRequest.GET);
+		var request = new BMSRequest(apiRoute, BMSRequest.GET);
 
 		// Send the request
 		request.send(success, failure);
@@ -33,7 +33,7 @@ var api = {
 	addItem: function(apiRoute, success, failure) {
 
 		// Set up the POST request and set headers
-		var request = new MFPRequest(apiRoute, MFPRequest.POST);
+		var request = new BMSRequest(apiRoute, BMSRequest.POST);
 		var headers = {
 		    "Content-Type": "application/json",
 		    "Accept": "application/json",
@@ -63,7 +63,7 @@ var api = {
 		var url = apiRoute + "/" + id;
 
 		// Set up the PUT request and set the headers
-		var request = new MFPRequest(url, MFPRequest.PUT);
+		var request = new BMSRequest(url, BMSRequest.PUT);
 		var headers = {
 		    "Content-Type": "application/json",
 		    "Accept": "application/json",
@@ -96,7 +96,7 @@ var api = {
 		var url = apiRoute + "/" + id;
 
 		// Set up the DELETE request and set the headers
-		var request = new MFPRequest(url, MFPRequest.DELETE);
+		var request = new BMSRequest(url, BMSRequest.DELETE);
 		var headers = {
 		    "Accept": "application/json",
 		};
