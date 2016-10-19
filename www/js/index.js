@@ -20,8 +20,9 @@
 var app =  {
 
     // Bluemix credentials
-    route: "<APPLICATION_ROUTE>",
-    guid: "<APPLICATION_GUID>",
+    //
+    // Create a MobileFirst Services starter service instance and copy the route e.g. "myhostname.mybluemix.net"
+    route: "APPLICATION_ROUTE",
 
     // API route for Items model
     apiRoute: "/api/Items",
@@ -41,15 +42,7 @@ var app =  {
 
     // deviceready Event Handler
     //
-    // The scope of 'this' is the event. In order to use the 'route' and 'guid'
-    // variables, we must explicitly call 'app.route' and 'app.guid'. Also,
-    // In order to initialize BMSClient you must specify the region. 
-    // The following constants are provided:
-    //
-    // BMSClient.REGION_US_SOUTH = ".ng.bluemix.net";
-    // BMSClilent.REGION_UK = ".eu-gb.bluemix.net";
-    // BMSClient.REGION_SYDNEY = ".au-syd.bluemix.net";
-
+    // Set the region: BMSClient.REGION_US_SOUTH, BMSClient.REGION_UK, or BMSClient.REGION_SYDNEY
     onDeviceReady: function() {
         BMSClient.initialize(BMSClient.REGION_US_SOUTH);
         app.apiRoute = app.route + app.apiRoute;
