@@ -21,8 +21,8 @@ var app =  {
 
     // Bluemix credentials
     //
-    // Create a MobileFirst Services starter service instance and copy the route e.g. "myhostname.mybluemix.net"
-    route: "APPLICATION_ROUTE",
+    // Create a MobileFirst Services starter service instance and copy the route e.g. "https://myhostname.mybluemix.net"
+    route: "SERVER_URL",
 
     // API route for Items model
     apiRoute: "/api/Items",
